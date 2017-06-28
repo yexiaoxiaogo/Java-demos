@@ -70,7 +70,7 @@ public class App {
 			conn = DriverManager.getConnection(DB_URL, USER, PASS);//连接数据库
 			String sql;	
 			sql = "INSERT INTO websites (id,name,url,alexa,country)"+" VALUES (?,?,?,?,?)";
-			PreparedStatement ptmt = conn.prepareStatement(sql);
+			PreparedStatement ptmt = conn.prepareStatement(sql);  //PreparedStatement接口重构增删改查、封装JDBC工具类 这个到时候查一下
 			
 			ptmt.setInt(1, 9);
 			ptmt.setString(2, "3333");
