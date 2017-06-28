@@ -22,10 +22,11 @@ public class App {
 	
 	public static void main(String[] args) {
 		
-//		query();//查询数据库全部信息
+		query();//查询数据库全部信息
 		insert();//新增一条记录
-//		updata();//更新某条记录
-//		delete();//删除某条信息
+		insert1();//新增一条记录，另一种方法
+		updata();//更新某条记录
+		delete();//删除某条信息
 		
 	}
 	//查询数据库信息
@@ -67,13 +68,7 @@ public class App {
 			
 			Class.forName(JDBC_DRIVER);//注册驱动
 			conn = DriverManager.getConnection(DB_URL, USER, PASS);//连接数据库
-//			stmt = (Statement )conn.createStatement();//实例化
-			String sql;
-			//增加一条信息id=1,name="网易云音乐",url=http://music.163.com/,alexa=666,country=CN
-//			sql = "INSERT INTO websites (id,name,url,alexa,country)"+" VALUES ('7','网易云音乐','http://music.163.com/','666','CN')";
-//			int rs = stmt.executeUpdate(sql);
-//			query();//插入信息后查询
-			
+			String sql;	
 			sql = "INSERT INTO websites (id,name,url,alexa,country)"+" VALUES (?,?,?,?,?)";
 			PreparedStatement ptmt = conn.prepareStatement(sql);
 			
@@ -84,8 +79,26 @@ public class App {
 			ptmt.setString(5, "kkkkk");
 			
 			ptmt.execute();
-//			stmt.close();
-//			conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+	//增加记录
+	public static void insert1(){
+		
+		try {
+			
+			Class.forName(JDBC_DRIVER);//注册驱动
+			conn = DriverManager.getConnection(DB_URL, USER, PASS);//连接数据库
+			stmt = (Statement )conn.createStatement();//实例化
+			String sql;
+			//增加一条信息id=1,name="网易云音乐",url=http://music.163.com/,alexa=666,country=CN
+			sql = "INSERT INTO websites (id,name,url,alexa,country)"+" VALUES ('7','网易云音乐','http://music.163.com/','666','CN')";
+			stmt.executeUpdate(sql);
+			query();//插入信息后查询	
+			stmt.close();
+			conn.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -102,7 +115,7 @@ public class App {
 			String sql;
 			//修改Google的排名
 			sql = "UPDATE websites SET alexa = 1 WHERE name = 'google'";
-			int rs = stmt.executeUpdate(sql);
+			stmt.executeUpdate(sql);
 			query();//查询更新后的表格
 			stmt.close();
 			conn.close();
@@ -122,7 +135,7 @@ public class App {
 			stmt = conn.createStatement();//实例化
 			String sql;
 			sql = "DELETE  FROM websites WHERE name = '网易云音乐'";
-			int rs = stmt.executeUpdate(sql);
+			stmt.executeUpdate(sql);
 			query();
 			stmt.close();
 			conn.close();
