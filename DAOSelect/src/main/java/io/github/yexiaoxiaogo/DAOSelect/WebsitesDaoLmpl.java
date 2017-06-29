@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.List;
 
 public class WebsitesDaoLmpl implements WebsitesDao {
 	//JDBC驱动名 
@@ -17,6 +18,8 @@ public class WebsitesDaoLmpl implements WebsitesDao {
 	//静态全局变量
 	static Connection conn = null;
 	static Statement stmt = null;
+	List<Websites> websites;
+	
 
 	public Websites getWebsites(int id) {
 		
@@ -55,6 +58,21 @@ public class WebsitesDaoLmpl implements WebsitesDao {
 			e.printStackTrace();
 		}
 		 return websites;
+	}
+
+	public List<Websites> getAllWebsties() {
+		// TODO Auto-generated method stub
+		return websites;
+	}
+
+	public void updateWebsites(Websites websites) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void deleteWebsites(Websites websites) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 
