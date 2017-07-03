@@ -74,19 +74,41 @@ public class DBAccess extends HttpServlet {
 				
 			}
 			out.println("</body></html>");
+
+			//获取请求参数query
+//			String query = request.getQueryString();
+//			for(String retval:query.split("&")){
+//				out.println(retval);
+//			}
+
+			Enumeration en = request.getParameterNames();
+			String paraname = null;
+			String paravalue = null; 
+			while(en.hasMoreElements()){
+				paraname = (String)en.nextElement();
+				paravalue = request.getParameter(paraname);
+				System.out.println(paraname + ':' + paravalue);
+
+			}
+			String  sqlselect;
+			sqlselect = "select country from websites where "+ paraname +" = " + paravalue;
+			System.out.println(sqlselect);
+			
+			
+			ResultSet rs1 = stmt.executeQuery(sqlselect);
+			
+			while (rs1.next()) {
+				String country1 = rs1.getString("country");
+				
+				System.out.println(country1);
+				
+				out.println(country1);
+			}
+			
 			rs.close();
 			stmt.close();
 			conn.close();
 			
-//			//获取请求参数query
-//			String query = request.getQueryString();
-//		//	response.getWriter().print("<tr><td>" + query + "</td>\n");
-//			Enumeration en = request.getParameterNames();
-//			while(en.hasMoreElements()){
-//				para = en.nextElement();
-//				这个回来接着写。例如查询id=1的文章，是哪个国家的
-			//获得的id=1，放在一个变量里，获得的country放在一个变量里、用id去查country，并且返回country
-//			}
 			
 			} catch (SQLException se) {
 			// 处理JDBC错误
