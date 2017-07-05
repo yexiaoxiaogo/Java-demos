@@ -60,7 +60,7 @@ public class DBAccess extends HttpServlet {
 			//执行SQL查询
 			stmt = (Statement) conn.createStatement();
 			String sql;
-			sql = "SELECT * FROM websites";
+			sql = "SELECT * FROM websites where url like '%com'";
 			ResultSet rs = stmt.executeQuery(sql);
 			while (rs.next()) {
 				int id = rs.getInt("id");
@@ -87,22 +87,19 @@ public class DBAccess extends HttpServlet {
 			while(en.hasMoreElements()){
 				paraname = (String)en.nextElement();
 				paravalue = request.getParameter(paraname);
-				System.out.println(paraname + ':' + paravalue);
+		//		System.out.println(paraname + ':' + paravalue);
 
 			}
 			String  sqlselect;
 			sqlselect = "select country from websites where "+ paraname +" = " + paravalue;
-			System.out.println(sqlselect);
-			
-			
+
 			ResultSet rs1 = stmt.executeQuery(sqlselect);
 			
 			while (rs1.next()) {
 				String country1 = rs1.getString("country");
 				
-				System.out.println(country1);
-				
-				out.println(country1);
+				System.out.println(paraname+ "="+ paravalue+"的网站，所属的国家为："+country1);
+
 			}
 			
 			rs.close();
