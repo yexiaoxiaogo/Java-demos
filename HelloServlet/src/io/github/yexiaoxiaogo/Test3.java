@@ -44,8 +44,12 @@ public class Test3 extends HttpServlet {
 		String method = request.getMethod();
 		response.getWriter().print("<tr><td>" + method + "</td>\n");
 
+		StringBuffer url = request.getRequestURL();
+		response.getWriter().println("<tr><td>" + url + "</td>\n");
 		
-		String query = request.getQueryString();
+//		String para = request.getParameter("para");       //返回para的值
+//		response.getWriter().print("<tr><td>" + para + "</td>\n");
+		String query = request.getQueryString();                        //返回问号后面所有的字符串
 		response.getWriter().print("<tr><td>" + query + "</td>\n");
 
 
