@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @EnableAutoConfiguration
 public class APP {
 
-	@RequestMapping("/HelloWorldImp")
+	@RequestMapping("/")
 	@ResponseBody
 	String home(){
 		return "hello world";
