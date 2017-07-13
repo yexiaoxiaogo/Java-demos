@@ -30,7 +30,7 @@ public class Test {
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
 			Websites websites = (Websites) session
-					.selectOne("io.github.yexiaoxiaogo.MybatisXML.WebsitesrMapper.selectWebsitesByID", 1);
+					.selectOne("io.github.yexiaoxiaogo.MybatisXML.WebsitesMapper.selectWebsitesByID", 1);
 			System.out.println(websites.getName());
 			System.out.println(websites.getUrl());
 		} finally {
