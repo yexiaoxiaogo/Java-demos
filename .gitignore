@@ -24,3 +24,7 @@ hs_err_pid*
 .classpath
 .project
 .settings/
+HelloWorld/target/classes/
+MavenWeb/target/
+MyBatis/Mybatis/target/classes
+SpringBootHelloWorld/target
