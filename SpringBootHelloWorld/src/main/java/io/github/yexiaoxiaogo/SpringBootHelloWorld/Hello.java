@@ -1,6 +1,15 @@
 package io.github.yexiaoxiaogo.SpringBootHelloWorld;
 
-public interface Hello {
-	public void desplay();
+public class Hello {
+	private String name;
+	public Hello(String name){
+		this.setName(name);
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 
 }
