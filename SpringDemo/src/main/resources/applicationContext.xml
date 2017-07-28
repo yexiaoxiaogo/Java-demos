@@ -1,0 +1,4 @@
+<bean id="productDaoImpl" class="io.github.yexiaoxiaogo.SpringDemo.ProductDaoImp"/>
+<bean id="productManage" class="io.github.yexiaoxiaogo.SpringDemo.ProductManage">
+	<property name="productDao" ref="productDaoImpl"/>
+</bean>
