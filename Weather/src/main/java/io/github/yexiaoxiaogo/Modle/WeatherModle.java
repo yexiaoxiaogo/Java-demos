@@ -33,7 +33,7 @@ public class WeatherModle{
 	private int id;
 	
 	@Column(name = "CITYNAME")
-	private String ctiyName;
+	private String cityName;
 	
 	@Column(name = "STATE")
 	private String state;
@@ -55,12 +55,12 @@ public class WeatherModle{
 		this.id = id;
 	}
 
-	public String getCtiyName() {
-		return ctiyName;
+	public String getCityName() {
+		return cityName;
 	}
 
-	public void setCtiyName(String ctiyName) {
-		this.ctiyName = ctiyName;
+	public void setCityName(String cityName) {
+		this.cityName = cityName;
 	}
 
 	public String getState() {
