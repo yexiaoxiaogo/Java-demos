@@ -10,6 +10,7 @@ public class Factory {
 //		
 //	}
 	
+	// spring boot 内部管理  bean 的类似代码，简易版本
 	public Servlet getBean() throws IllegalArgumentException, IllegalAccessException {
 		Servlet servlet = new Servlet();
 		Field[] fields = Servlet.class.getDeclaredFields();

@@ -1,5 +1,6 @@
 package io.github.yexiaoxiaogo.inject;
 
+//@Bean
 public class InterfaceImpl implements Interface {
 
 	@Override
