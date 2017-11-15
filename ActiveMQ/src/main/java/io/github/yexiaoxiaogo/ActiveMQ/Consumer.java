@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Consumer {
 	
-	@JmsListener(destination = "mailbox", containerFactory = "myFactory")
+	@JmsListener(destination = "sample.queue")
 	private void receiveQueue(String text) {
 		System.out.println("text:" + text);
 
